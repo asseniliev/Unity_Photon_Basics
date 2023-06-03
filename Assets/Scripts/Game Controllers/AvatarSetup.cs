@@ -9,10 +9,12 @@ using System.IO;
 public class AvatarSetup : MonoBehaviour
 {
     public int selectedCharacterValue;
+    
     private PhotonView photonView;
+
     
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         this.photonView = this.GetComponent<PhotonView>();
         int parentView = this.photonView.ViewID;
@@ -36,11 +38,12 @@ public class AvatarSetup : MonoBehaviour
     }
 
     private void AddCharacter(int selectedCharacter, object[] customData)
-    {           
-        PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", PlayerInfo.playerInfo.allCharacters[selectedCharacter].name),
+    {
+        GameManager.gameManager.myAvatar = 
+            PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", PlayerInfo.playerInfo.allCharacters[selectedCharacter].name),
                                                            this.transform.position, 
                                                            this.transform.rotation, 
                                                            0, 
-                                                           customData);        
+                                                           customData);
     }
 }

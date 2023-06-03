@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7108445235853508609}
   - component: {fileID: 2615487367310316177}
   - component: {fileID: 4645728326855013546}
+  - component: {fileID: 1819224189247973349}
   m_Layer: 0
   m_Name: Purple Player
   m_TagString: Untagged
@@ -171,6 +172,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraPosition: {fileID: 1239166866242061951}
+--- !u!114 &1819224189247973349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809950240448905456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a72b8a65c21c3a498b2b672670b2bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3407977471590422369
 GameObject:
   m_ObjectHideFlags: 0

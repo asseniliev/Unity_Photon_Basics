@@ -9,33 +9,60 @@ using Photon.Pun;
 public class HealthManager : MonoBehaviour
 {
     public Text text;
-    public int health;
-
-    private PhotonView photonView;
     
+    [SerializeField] private int health;
+    private PhotonView photonView;
+
+    private void OnEnable()
+    {
+        EventManager.eventManager.makeDamage += TakeDamage;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.eventManager.makeDamage -= TakeDamage;
+    }
+
+    public int Health { get => this.health; private set => this.health = value; }
+
     // Start is called before the first frame update
     void Start()
     {
         this.photonView = this.GetComponent<PhotonView>();
+        if(this.photonView.IsMine)
+            GameManager.gameManager.healthText.text = this.Health.ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
-        this.text.text = health.ToString();
-        
-        if(this.photonView.IsMine)
+        this.text.text = this.Health.ToString();
+        if (this.photonView.IsMine)
         {
             if (Input.GetKeyDown(KeyCode.T))
-                this.photonView.RPC("RPC_ModifyHealth", RpcTarget.AllBuffered, -1);
+                TakeDamage(this.transform.name, 1);
+            
+            GameManager.gameManager.healthText.text = this.Health.ToString();
         }
+    }
 
+    private void TakeDamage(string name, int damage)
+    {
+        if(this.transform.name == name)
+        {
+            this.Health -= damage;
+            if (this.Health < 0)
+                this.Health = 0;
+
+            
+            this.photonView.RPC("RPC_ModifyHealth", RpcTarget.OthersBuffered, this.Health);
+        }
     }
 
     [PunRPC]
-    private void RPC_ModifyHealth(int modifier)
+    private void RPC_ModifyHealth(int health)
     {
-        this.health += modifier;
+        this.Health = health;
     }
 
 
