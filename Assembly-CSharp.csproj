@@ -64,7 +64,7 @@
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\TextButtonTransition.cs" />
     <Compile Include="Assets\Photon\PhotonLibs\WebSocket\SocketWebTcp.cs" />
     <Compile Include="Assets\Scripts\Photon\PhotonRoom.cs" />
-    <Compile Include="Assets\Scripts\Game Controllers\SetParentAvatar.cs" />
+    <Compile Include="Assets\Scripts\Game Controllers\InitializeAvatar.cs" />
     <Compile Include="Assets\Scripts\Game Controllers\PhotonPlayer.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\ChatAppIdCheckerUI.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\AppSettingsExtensions.cs" />
@@ -80,6 +80,7 @@
     <Compile Include="Assets\Scripts\Game Controllers\HealthManager.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\TextToggleIsOnTransition.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\OnStartDelete.cs" />
+    <Compile Include="Assets\Scripts\Game Controllers\Shoot.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Photon\PhotonLibs\netstandard2.0\Photon3Unity3D.xml" />

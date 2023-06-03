@@ -28,8 +28,6 @@ public class AvatarSetup : MonoBehaviour
             this.transform.SetParent(parentPhotonView.transform);
         }
 
-
-
         if (this.photonView.IsMine)
         {
             object[] customData = new object[] { parentView };
