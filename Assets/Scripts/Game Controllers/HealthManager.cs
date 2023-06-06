@@ -53,7 +53,6 @@ public class HealthManager : MonoBehaviour
             this.Health -= damage;
             if (this.Health < 0)
                 this.Health = 0;
-
             
             this.photonView.RPC("RPC_ModifyHealth", RpcTarget.OthersBuffered, this.Health);
         }

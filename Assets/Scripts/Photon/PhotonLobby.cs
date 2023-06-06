@@ -46,8 +46,6 @@ public class PhotonLobby : MonoBehaviourPunCallbacks
         CreateNewRoom();
     }
 
-
-
     private void CreateNewRoom()
     {
         int randomRoomNumber = Random.Range(0, 10000);

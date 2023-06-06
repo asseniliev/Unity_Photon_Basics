@@ -45,5 +45,6 @@ public class AvatarSetup : MonoBehaviour
                                                            this.transform.rotation, 
                                                            0, 
                                                            customData);
+        PhotonNetwork.NickName = PlayerInfo.playerInfo.allCharacters[selectedCharacter].name;
     }
 }

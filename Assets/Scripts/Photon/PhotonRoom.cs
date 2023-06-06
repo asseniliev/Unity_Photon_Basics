@@ -8,6 +8,7 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
 {
     public static PhotonRoom room;
     public int currentScene;
+    public int menuScene = 0;
     public int multiPlayerScene = 1;
 
 
@@ -65,4 +66,15 @@ public class PhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
     {
         PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PhotonNetworkPlayer"), transform.position, Quaternion.identity, 0);
     }
+
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        base.OnPlayerLeftRoom(otherPlayer);
+
+        string message = $"{otherPlayer.NickName} left the room.";
+        Debug.Log(message);
+        EventManager.eventManager.CallDistributeMessageEvent(message);
+    }
+
+    
 }

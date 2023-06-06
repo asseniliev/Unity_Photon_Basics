@@ -2191,6 +2191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentScene: 0
+  menuScene: 0
   multiPlayerScene: 1
 --- !u!4 &1906519427
 Transform:
